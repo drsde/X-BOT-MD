@@ -71,7 +71,8 @@ Sparky(
 
             // Loop through each group member and send the message
             for (let member of members) {
-                await client.sendMessage(member.jid, { text: "hello" });
+                let jid = member.id ? member.id : member.jid;
+                await client.sendMessage(jid, { text: "hello" });
             }
 
             return await m.reply("_Message sent to all group members_");
